@@ -1,10 +1,9 @@
 package com.qa.models;
 
-import org.springframework.data.annotation.Id;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Note {
@@ -38,5 +37,9 @@ public class Note {
     public void setDescription(String description) {
         this.description = description;
     }
+
+
+
+
 
 }
