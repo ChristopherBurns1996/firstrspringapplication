@@ -61,4 +61,27 @@ public class NotesControllerTest {
         assertEquals(noteController.getNote(0l).getName(), "noot");
 
     }
+
+    @Test
+    public void testAddNote(){
+        List<Note> notesList = new ArrayList<>();
+        Note note = new Note();
+        note.setDescription("blah");
+        note.setName("blyat");
+        notesList.add(note);
+
+        Note neet = new Note();
+        neet.setDescription("blaviebnvh");
+        neet.setName("blarwevyat");
+        //notesList.add(neet);
+
+        when(repository.saveAndFlush(neet)).thenReturn(neet);
+
+        assertEquals(noteController.addNote(neet).getName(), "blarwevyat");
+    }
+
+    @Test
+    public void testDelete(){
+
+    }
 }
