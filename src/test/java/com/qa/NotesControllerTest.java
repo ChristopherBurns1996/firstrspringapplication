@@ -82,6 +82,15 @@ public class NotesControllerTest {
 
     @Test
     public void testDelete(){
+        List<Note> notesList = new ArrayList<>();
+        Note note = new Note();
+        note.setDescription("eilbvsu ");
+        note.setName("aibyeyr");
+        notesList.add(note);
+
+        when(repository.findOne(0l)).thenReturn(note);
+
+        assertEquals(noteController.deleteNote(0l).getName(), "aibyeyr");
 
     }
 }
