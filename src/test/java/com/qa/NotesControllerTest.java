@@ -17,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(SpringRunner.class)
@@ -43,8 +44,21 @@ public class NotesControllerTest {
         note.setName("gneruibv yu");
         notesList.add(note);
 
+        //makes it so that *when* something is called it does something
         when(repository.findAll()).thenReturn(notesList);
 
-        noteController.listAllNotes();
+        assertEquals(noteController.listAllNotes().get(0).getName(), "gneruibv yu");
+    }
+
+    @Test
+    public void testGetNoteByID(){
+        Note note = new Note();
+        note.setName("noot");
+        note.setDescription("nyet");
+
+        when(repository.findOne(0l)).thenReturn(note);
+
+        assertEquals(noteController.getNote(0l).getName(), "noot");
+
     }
 }
