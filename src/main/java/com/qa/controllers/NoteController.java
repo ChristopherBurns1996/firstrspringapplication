@@ -11,6 +11,7 @@ import java.util.List;
 @CrossOrigin()
 public class NoteController {
 
+    //autowired seems to automatically create the object
     @Autowired
     private NotesRepository repository;
 
